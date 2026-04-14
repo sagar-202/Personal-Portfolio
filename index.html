@@ -9,7 +9,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <!-- Deferred loading for non-critical icon script -->
     <script src="https://unpkg.com/feather-icons" defer></script>
@@ -43,10 +43,10 @@
         <section id="hero" class="hero section">
             <div class="hero-bg"></div>
             <div class="container hero-content">
-                <span class="subtitle">Hello, I'm</span>
-                <h1 class="hero-title">Alex Morgan</h1>
-                <p class="hero-intro">I design and build clean, modern, and engaging user experiences.</p>
-                <div class="hero-buttons">
+                <span class="subtitle reveal">Hello, I'm</span>
+                <h1 class="hero-title reveal">Alex Morgan</h1>
+                <p class="hero-intro reveal">I design and build clean, modern, and engaging user experiences.</p>
+                <div class="hero-buttons reveal">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
                     <a href="#contact" class="btn btn-secondary">Get in Touch</a>
                 </div>
@@ -56,8 +56,8 @@
         <!-- About Section -->
         <section id="about" class="section bg-surface">
             <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-grid">
+                <h2 class="section-title reveal">About Me</h2>
+                <div class="about-grid reveal">
                     <div class="about-text">
                         <p>I am a passionate creative developer and designer focused on producing high-quality, high
                             visual impact digital products. With a strong foundation in visual design and frontend
@@ -85,9 +85,9 @@
         <!-- Education Section -->
         <section id="education" class="section">
             <div class="container">
-                <h2 class="section-title">Education</h2>
+                <h2 class="section-title reveal">Education</h2>
                 <div class="timeline">
-                    <div class="timeline-item">
+                    <div class="timeline-item reveal">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content card">
                             <span class="timeline-date">2018 - 2022</span>
@@ -96,7 +96,7 @@
                             <p>Focused on Human-Computer Interaction and modern software engineering principles.</p>
                         </div>
                     </div>
-                    <div class="timeline-item">
+                    <div class="timeline-item reveal">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content card">
                             <span class="timeline-date">2016 - 2018</span>
@@ -112,10 +112,10 @@
         <!-- Projects Section -->
         <section id="projects" class="section bg-surface">
             <div class="container">
-                <h2 class="section-title">Selected Projects</h2>
+                <h2 class="section-title reveal">Selected Projects</h2>
                 <div class="project-grid">
                     <!-- Project 1 -->
-                    <div class="project-card card">
+                    <div class="project-card card reveal">
                         <div class="project-img-placeholder">Project Image</div>
                         <div class="project-info">
                             <h3>Analytics Dashboard</h3>
@@ -129,7 +129,7 @@
                         </div>
                     </div>
                     <!-- Project 2 -->
-                    <div class="project-card card">
+                    <div class="project-card card reveal">
                         <div class="project-img-placeholder">Project Image</div>
                         <div class="project-info">
                             <h3>E-Commerce Platform</h3>
@@ -143,7 +143,7 @@
                         </div>
                     </div>
                     <!-- Project 3 -->
-                    <div class="project-card card">
+                    <div class="project-card card reveal">
                         <div class="project-img-placeholder">Project Image</div>
                         <div class="project-info">
                             <h3>SaaS Landing Page</h3>
@@ -163,9 +163,9 @@
         <!-- Skills Section -->
         <section id="skills" class="section">
             <div class="container">
-                <h2 class="section-title">Technical Skills</h2>
+                <h2 class="section-title reveal">Technical Skills</h2>
                 <div class="skills-grid">
-                    <div class="skill-category card">
+                    <div class="skill-category card reveal">
                         <i data-feather="layout"></i>
                         <h3>Frontend</h3>
                         <ul class="skill-list">
@@ -175,7 +175,7 @@
                             <li>Vue.js</li>
                         </ul>
                     </div>
-                    <div class="skill-category card">
+                    <div class="skill-category card reveal">
                         <i data-feather="server"></i>
                         <h3>Backend</h3>
                         <ul class="skill-list">
@@ -185,7 +185,7 @@
                             <li>REST APIs</li>
                         </ul>
                     </div>
-                    <div class="skill-category card">
+                    <div class="skill-category card reveal">
                         <i data-feather="database"></i>
                         <h3>Database</h3>
                         <ul class="skill-list">
@@ -195,7 +195,7 @@
                             <li>Supabase</li>
                         </ul>
                     </div>
-                    <div class="skill-category card">
+                    <div class="skill-category card reveal">
                         <i data-feather="tool"></i>
                         <h3>Tools</h3>
                         <ul class="skill-list">
@@ -212,7 +212,7 @@
         <!-- Contact Section -->
         <section id="contact" class="section bg-surface">
             <div class="container">
-                <div class="contact-card card text-center">
+                <div class="contact-card card text-center reveal">
                     <h2 class="section-title">Let's Work Together</h2>
                     <p class="contact-text">Currently available for freelance opportunities or full-time roles. Let's
                         discuss your project.</p>
@@ -241,6 +241,27 @@
             if (typeof feather !== 'undefined') {
                 feather.replace();
             }
+
+            // Scroll Reveal Animation via Intersection Observer
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => {
+                revealOnScroll.observe(el);
+            });
 
             // Mobile Menu Toggle Logic
             const menuBtn = document.querySelector('.mobile-menu-btn');
