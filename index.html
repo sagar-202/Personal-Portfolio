@@ -11,13 +11,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <!-- Deferred loading for non-critical icon script -->
+    <!-- Deferred loading for Feather Icons -->
     <script src="https://unpkg.com/feather-icons" defer></script>
 </head>
 
 <body>
     <header class="navbar">
-        <div class="container nav-container">
+        <div class="nav-container">
             <a href="#" class="logo">Portfolio.</a>
             
             <!-- Hamburger Menu Button -->
@@ -32,125 +32,123 @@
                     <li><a href="#education" class="nav-link">Education</a></li>
                     <li><a href="#projects" class="nav-link">Projects</a></li>
                     <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#contact" class="btn btn-outline btn-sm nav-link">Contact</a></li>
+                    <li><a href="#contact" class="btn btn-primary btn-sm nav-link">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero section">
-            <div class="hero-bg"></div>
-            <div class="container hero-content">
-                <span class="subtitle reveal">Hello, I'm</span>
-                <h1 class="hero-title reveal">Alex Morgan</h1>
-                <p class="hero-intro reveal">I design and build clean, modern, and engaging user experiences.</p>
-                <div class="hero-buttons reveal">
+    <!-- STORY CONTAINER: Controls the Sticky Deck overscrolls -->
+    <main class="story-container">
+
+        <!-- 1. HERO CARD (Base stack) -->
+        <div class="stack-card" id="hero">
+            <div class="card-inner hero-inner">
+                <span class="subtitle">Hello, I'm</span>
+                <h1 class="hero-title">Alex Morgan</h1>
+                <p class="hero-intro">I engineer and design digital experiences in a clean, modern, and engaging way.</p>
+                <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
                     <a href="#contact" class="btn btn-secondary">Get in Touch</a>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- About Section -->
-        <section id="about" class="section bg-surface">
-            <div class="container">
-                <h2 class="section-title reveal">About Me</h2>
-                <div class="about-grid reveal">
+        <!-- 2. ABOUT CARD (Stacking layer 2) -->
+        <div class="stack-card" id="about">
+            <div class="card-inner">
+                <div class="text-center">
+                    <h2 class="section-title">About Me</h2>
+                </div>
+                <div class="about-grid">
                     <div class="about-text">
                         <p>I am a passionate creative developer and designer focused on producing high-quality, high
                             visual impact digital products. With a strong foundation in visual design and frontend
-                            technologies, I bridge the gap between design and engineering.</p>
-                        <p>My approach is rooted in simplicity and usability. I believe that a clean, minimal aesthetic
-                            combined with strong typography and meaningful interactions leads to the most effective user
-                            experiences.</p>
+                            technologies, I deeply bridge the gap between aesthetics and engineering.</p>
+                        <p>My approach is rooted in simplicity and usability. I believe that a clean, minimal UI
+                            combined with strict typography and meaningful interactions leads to the absolute best user
+                            experiences across the web.</p>
                     </div>
                     <div class="about-cards">
-                        <div class="info-card">
+                        <div class="inner-card">
                             <i data-feather="award"></i>
                             <h3>Experience</h3>
-                            <p>5+ Years working in digital product design and development.</p>
+                            <p>5+ Years building products.</p>
                         </div>
-                        <div class="info-card">
+                        <div class="inner-card">
                             <i data-feather="globe"></i>
                             <h3>Location</h3>
-                            <p>Based in San Francisco, working globally with amazing clients.</p>
+                            <p>San Francisco, working globally.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Education Section -->
-        <section id="education" class="section">
-            <div class="container">
-                <h2 class="section-title reveal">Education</h2>
+        <!-- 3. EDUCATION CARD (Stacking layer 3) -->
+        <div class="stack-card" id="education">
+            <div class="card-inner">
+                <div class="text-center">
+                    <h2 class="section-title">Education</h2>
+                </div>
                 <div class="timeline">
-                    <div class="timeline-item reveal">
+                    <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <div class="timeline-content card">
+                        <div class="timeline-content inner-card">
                             <span class="timeline-date">2018 - 2022</span>
                             <h3>B.S. in Computer Science</h3>
                             <p class="timeline-location">University of Technology</p>
-                            <p>Focused on Human-Computer Interaction and modern software engineering principles.</p>
+                            <p>Focused intensely on Human-Computer Interaction and modern software engineering principles, graduating with honors.</p>
                         </div>
                     </div>
-                    <div class="timeline-item reveal">
+                    <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <div class="timeline-content card">
+                        <div class="timeline-content inner-card">
                             <span class="timeline-date">2016 - 2018</span>
-                            <h3>Associate Degree in Graphic Design</h3>
+                            <h3>A.S. in Graphic Design</h3>
                             <p class="timeline-location">Creative Arts College</p>
-                            <p>Developed core skills in visual communication, typography, and layout design.</p>
+                            <p>Developed core skills in visual communication, grid theories, typography, and interactive layout design.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section bg-surface">
-            <div class="container">
-                <h2 class="section-title reveal">Selected Projects</h2>
+        <!-- 4. PROJECTS CARD (Stacking layer 4) -->
+        <div class="stack-card" id="projects">
+            <div class="card-inner">
+                <div class="text-center">
+                    <h2 class="section-title">Selected Projects</h2>
+                </div>
                 <div class="project-grid">
-                    <!-- Project 1 -->
-                    <div class="project-card card reveal">
-                        <div class="project-img-placeholder">Project Image</div>
+                    <div class="project-card inner-card">
+                        <div class="project-img-placeholder">Project Alpha</div>
                         <div class="project-info">
                             <h3>Analytics Dashboard</h3>
-                            <p>A comprehensive dashboard for visualizing complex datasets with modern UI components and
-                                real-time updates.</p>
+                            <p>A comprehensive dashboard for visualizing complex datasets with modern UI components and real-time updates.</p>
                             <div class="tags">
                                 <span class="tag">React</span>
                                 <span class="tag">TypeScript</span>
-                                <span class="tag">CSS Grid</span>
                             </div>
                         </div>
                     </div>
-                    <!-- Project 2 -->
-                    <div class="project-card card reveal">
-                        <div class="project-img-placeholder">Project Image</div>
+                    <div class="project-card inner-card">
+                        <div class="project-img-placeholder">Project Nexus</div>
                         <div class="project-info">
                             <h3>E-Commerce Platform</h3>
-                            <p>A fully responsive retail platform featuring smooth transitions, a clean cart experience,
-                                and optimal conversion rates.</p>
+                            <p>A fully responsive retail platform featuring smooth transitions, a clean cart, and optimal conversion flows.</p>
                             <div class="tags">
                                 <span class="tag">Next.js</span>
                                 <span class="tag">Stripe</span>
-                                <span class="tag">Tailwind</span>
                             </div>
                         </div>
                     </div>
-                    <!-- Project 3 -->
-                    <div class="project-card card reveal">
-                        <div class="project-img-placeholder">Project Image</div>
+                    <div class="project-card inner-card">
+                        <div class="project-img-placeholder">Project Cipher</div>
                         <div class="project-info">
                             <h3>SaaS Landing Page</h3>
-                            <p>High-converting landing page built for a B2B SaaS company focusing on strong typography
-                                and subtle micro-interactions.</p>
+                            <p>High-converting landing page built for a B2B SaaS company focusing on strong typography and interactions.</p>
                             <div class="tags">
-                                <span class="tag">HTML5</span>
                                 <span class="tag">Figma</span>
                                 <span class="tag">GSAP</span>
                             </div>
@@ -158,14 +156,16 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Skills Section -->
-        <section id="skills" class="section">
-            <div class="container">
-                <h2 class="section-title reveal">Technical Skills</h2>
+        <!-- 5. SKILLS CARD (Stacking layer 5) -->
+        <div class="stack-card" id="skills">
+            <div class="card-inner">
+                <div class="text-center">
+                    <h2 class="section-title">Technical Skills</h2>
+                </div>
                 <div class="skills-grid">
-                    <div class="skill-category card reveal">
+                    <div class="skill-category inner-card">
                         <i data-feather="layout"></i>
                         <h3>Frontend</h3>
                         <ul class="skill-list">
@@ -175,17 +175,17 @@
                             <li>Vue.js</li>
                         </ul>
                     </div>
-                    <div class="skill-category card reveal">
+                    <div class="skill-category inner-card">
                         <i data-feather="server"></i>
                         <h3>Backend</h3>
                         <ul class="skill-list">
-                            <li>Node.js</li>
-                            <li>Express</li>
+                            <li>Node.js / Express</li>
                             <li>Python / Django</li>
                             <li>REST APIs</li>
+                            <li>GraphQL</li>
                         </ul>
                     </div>
-                    <div class="skill-category card reveal">
+                    <div class="skill-category inner-card">
                         <i data-feather="database"></i>
                         <h3>Database</h3>
                         <ul class="skill-list">
@@ -195,73 +195,50 @@
                             <li>Supabase</li>
                         </ul>
                     </div>
-                    <div class="skill-category card reveal">
+                    <div class="skill-category inner-card">
                         <i data-feather="tool"></i>
-                        <h3>Tools</h3>
+                        <h3>Tools & Ops</h3>
                         <ul class="skill-list">
                             <li>Git & GitHub</li>
                             <li>Figma</li>
                             <li>Docker</li>
-                            <li>Webpack / Vite</li>
+                            <li>Vercel / AWS</li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Contact Section -->
-        <section id="contact" class="section bg-surface">
-            <div class="container">
-                <div class="contact-card card text-center reveal">
+        <!-- 6. CONTACT CARD (Final layer 6) -->
+        <div class="stack-card" id="contact">
+            <div class="card-inner contact-content">
+                <div class="text-center">
                     <h2 class="section-title">Let's Work Together</h2>
-                    <p class="contact-text">Currently available for freelance opportunities or full-time roles. Let's
-                        discuss your project.</p>
-                    <a href="mailto:hello@example.com" class="btn btn-primary btn-large">
-                        <i data-feather="mail" class="icon-left"></i> Say Hello
-                    </a>
-                    <div class="social-links">
-                        <a href="#" aria-label="GitHub"><i data-feather="github"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
-                        <a href="#" aria-label="Twitter"><i data-feather="twitter"></i></a>
-                    </div>
+                </div>
+                <p class="contact-text">Currently available for freelance opportunities, full-time hybrid roles, or just chatting about interactive UI design.</p>
+                <a href="mailto:hello@example.com" class="btn btn-primary btn-large">
+                    <i data-feather="mail" class="icon-left"></i> Say Hello
+                </a>
+                <div class="social-links">
+                    <a href="#" aria-label="GitHub"><i data-feather="github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
+                    <a href="#" aria-label="Twitter"><i data-feather="twitter"></i></a>
                 </div>
             </div>
-        </section>
+        </div>
+
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Alex Morgan. Built with clean code.</p>
-        </div>
+        <p>&copy; 2026 Alex Morgan. Built with clean code & smooth scrolls.</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Initialize Feather icons once DOM is ready and script is loaded
+            // Initialize Feather icons once DOM is ready
             if (typeof feather !== 'undefined') {
                 feather.replace();
             }
-
-            // Scroll Reveal Animation via Intersection Observer
-            const revealElements = document.querySelectorAll('.reveal');
-            
-            const revealOptions = {
-                threshold: 0.1,
-                rootMargin: "0px 0px -50px 0px"
-            };
-
-            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, revealOptions);
-
-            revealElements.forEach(el => {
-                revealOnScroll.observe(el);
-            });
 
             // Mobile Menu Toggle Logic
             const menuBtn = document.querySelector('.mobile-menu-btn');
@@ -290,7 +267,6 @@
                 menuBtn.addEventListener('click', toggleMenu);
             }
 
-            // Close menu when clicking a link
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     if (navMenu.classList.contains('active')) {
