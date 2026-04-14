@@ -11,7 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Deferred loading for non-critical icon script -->
+    <script src="https://unpkg.com/feather-icons" defer></script>
 </head>
 
 <body>
@@ -235,42 +236,46 @@
     </footer>
 
     <script>
-        // Initialize Feather icons
-        feather.replace();
-
-        // Mobile Menu Toggle
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('.nav-menu');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const menuIcon = document.querySelector('.menu-icon');
-        const closeIcon = document.querySelector('.close-icon');
-
-        function toggleMenu() {
-            const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-            menuBtn.setAttribute('aria-expanded', !isExpanded);
-            navMenu.classList.toggle('active');
-            
-            if (!isExpanded) {
-                // Open
-                menuIcon.style.display = 'none';
-                closeIcon.style.display = 'block';
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
-            } else {
-                // Close
-                menuIcon.style.display = 'block';
-                closeIcon.style.display = 'none';
-                document.body.style.overflow = '';
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Feather icons once DOM is ready and script is loaded
+            if (typeof feather !== 'undefined') {
+                feather.replace();
             }
-        }
 
-        menuBtn.addEventListener('click', toggleMenu);
+            // Mobile Menu Toggle Logic
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const menuIcon = document.querySelector('.menu-icon');
+            const closeIcon = document.querySelector('.close-icon');
 
-        // Close menu when clicking a link
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (navMenu.classList.contains('active')) {
-                    toggleMenu();
+            function toggleMenu() {
+                const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                menuBtn.setAttribute('aria-expanded', !isExpanded);
+                navMenu.classList.toggle('active');
+                
+                if (!isExpanded) {
+                    menuIcon.style.display = 'none';
+                    closeIcon.style.display = 'block';
+                    document.body.style.overflow = 'hidden'; 
+                } else {
+                    menuIcon.style.display = 'block';
+                    closeIcon.style.display = 'none';
+                    document.body.style.overflow = '';
                 }
+            }
+
+            if(menuBtn) {
+                menuBtn.addEventListener('click', toggleMenu);
+            }
+
+            // Close menu when clicking a link
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
             });
         });
     </script>
