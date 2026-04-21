@@ -267,10 +267,38 @@
                 menuBtn.addEventListener('click', toggleMenu);
             }
 
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navMenu.classList.contains('active')) {
-                        toggleMenu();
+            // Smooth Scroll Hijacking for Sticky Stack Anchor Link logic
+            // Directly calculates mathematical spawn points relative to their unique sticky offset constraints
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    
+                    if (targetId === '#') {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        return;
+                    }
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+
+                        if (navMenu && navMenu.classList.contains('active')) {
+                            toggleMenu();
+                        }
+
+                        // Determine exactly how high we need to scroll to perfectly hit the top margin of the card
+                        let computedTop = parseInt(window.getComputedStyle(targetElement).top, 10);
+                        if (isNaN(computedTop)) {
+                            computedTop = 80; // Navbar height offset for mobile natively
+                        }
+
+                        const offsetPosition = targetElement.offsetTop - computedTop;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
                     }
                 });
             });
